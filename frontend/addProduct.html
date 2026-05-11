@@ -3,87 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RentEase</title>
+    <title>Add Product - RentEase</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <!-- NAVBAR START -->
     <div class="navbar">
+
         <div class="logo">
             <a href="index.html">
                 <img src="Logo.png" alt="Logo Of RentEase">
             </a>
         </div>
+
         <ul class="navlinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="register.html">Register</a></li>
             <li><a href="login.html">Login</a></li>
             <li><a href="addProduct.html">AddProduct</a></li>
-            <li><a href="order.html">MyOrders</a></li>
+            <li><a href="myorders.html">MyOrders</a></li>
             <li id="userArea"></li>
         </ul>
+
     </div>
     <!-- NAVBAR END -->
 
-   <!-- MAIN SECTION START -->
-<div class="container">
 
-    <h1>Add Furniture</h1>
+    <!-- MAIN SECTION START -->
+    <div class="container">
 
-    <div class="center">
-        <input type="text" id="name" placeholder="Enter Product Name">
+        <h1>Add Furniture</h1>
 
-        <input type="text" id="price" placeholder="Enter Price">
+        <div class="center">
 
-        <input type="text" id="category" placeholder="Category of Product">
+            <input type="text" id="name" placeholder="Enter Product Name">
 
-        <input type="text" id="image" placeholder="Enter Your Image">
+            <input type="number" id="price" placeholder="Enter Price">
 
-        <button onclick="addProduct()">
-            Add Product
-        </button>
+            <input type="text" id="category" placeholder="Enter Category">
+
+            <input type="text" id="image" placeholder="Enter Image URL">
+
+            <button onclick="addProduct()">
+                Add Product
+            </button>
+
+        </div>
+
     </div>
+    <!-- MAIN SECTION END -->
 
-</div>
-<!-- MAIN SECTION END -->
 
     <!-- FOOTER START -->
-     <div class="footer-container">
+    <div class="footer-container">
 
-        <!-- FOOTER LOGO -->
         <div class="footer-box">
             <div class="logo">
-            <a href="index.html">
-                <img src="Logo.png" alt="Logo Of RentEase">
-            </a>
-        </div>
-        <p>
-            Renting Made Simple. Find and rent products easily with a secure
-            and user-friendly platform.
-        </p>
+                <a href="index.html">
+                    <img src="Logo.png" alt="Logo Of RentEase">
+                </a>
+            </div>
+
+            <p>
+                Renting Made Simple. Find and rent products easily with a secure
+                and user-friendly platform.
+            </p>
         </div>
 
-        <!-- QUICK LINKS -->
-         <div class="footer-box">
+        <div class="footer-box">
             <ul class="navlinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="register.html">Register</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="addProduct.html">AddProduct</a></li>
-            <li><a href="order.html">MyOrders</a></li>
-        </ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="addProduct.html">AddProduct</a></li>
+                <li><a href="myorders.html">MyOrders</a></li>
+            </ul>
         </div>
 
-        <!-- CONTACT INFO -->
-         <div class="footer-box">
+        <div class="footer-box">
             <h2>Contact us:</h2>
-            <p>Email: </p>
-            <p>Contact: </p>
-            <p>Address: </p>
-         </div>
-     </div>
+            <p>Email:</p>
+            <p>Contact:</p>
+            <p>Address:</p>
+        </div>
 
-     <!-- BOTTOM FOOTER -->
+    </div>
+
     <div class="footer-bottom">
         <p>© 2026 RentEase | All Rights Reserved</p>
     </div>
@@ -91,5 +97,6 @@
     <!-- FOOTER END -->
 
     <script src="script.js"></script>
+
 </body>
 </html>

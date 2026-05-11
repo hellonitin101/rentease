@@ -15,19 +15,25 @@ if (document.getElementById("products")) {
       let output = "";
 
       data.products.forEach(p => {
-        output += `
-          <div class="card">
-            <img src="https://via.placeholder.com/200" />
-            <h3>${p.name}</h3>
-            <p>₹${p.price}/month</p>
-            <p>${p.category}</p>
 
-            <button onclick="goOrder('${p._id}', ${p.price})">
-              Rent Now
-            </button>
-          </div>
-        `;
-      });
+  output += `
+    <div class="card">
+
+      <img src="${p.image}" alt="${p.name}">
+
+      <h3>${p.name}</h3>
+
+      <p>₹${p.price}/month</p>
+
+      <p>${p.category}</p>
+
+      <button onclick="goOrder('${p._id}', ${p.price})">
+        Rent Now
+      </button>
+
+    </div>
+  `;
+});
 
       document.getElementById("products").innerHTML = output;
     })
