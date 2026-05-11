@@ -1,8 +1,13 @@
 // ==========================
+// BACKEND URL
+// ==========================
+const BASE_URL = "https://rentease-backend-b1t3.onrender.com";
+
+// ==========================
 // LOAD PRODUCTS (Home Page)
 // ==========================
 if (document.getElementById("products")) {
-  fetch("http://localhost:5000/api/products")
+  fetch(`${BASE_URL}/api/products`)
     .then(res => res.json())
     .then(data => {
       if (!data.success) return;
@@ -45,7 +50,7 @@ function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  fetch("http://localhost:5000/api/users/login", {
+  fetch(`${BASE_URL}/api/users/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -55,9 +60,13 @@ function login() {
     .then(res => res.json())
     .then(data => {
       if (data.success) {
+
         localStorage.setItem("userId", data.user._id);
+        localStorage.setItem("userName", data.user.name);
+
         alert("Login Successful ✅");
         window.location = "index.html";
+
       } else {
         alert(data.message);
       }
@@ -76,7 +85,7 @@ function register() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  fetch("http://localhost:5000/api/users/register", {
+  fetch(`${BASE_URL}/api/users/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -85,8 +94,10 @@ function register() {
   })
     .then(res => res.json())
     .then(data => {
+
       alert("Registered Successfully ✅");
       window.location = "login.html";
+
     })
     .catch(err => {
       console.log(err);
@@ -105,12 +116,13 @@ function order() {
 
   if (!userId) {
     alert("Please login first ❌");
+    window.location = "login.html";
     return;
   }
 
-  const totalPrice = price * duration;
+  const totalPrice = Number(price) * Number(duration);
 
-  fetch("http://localhost:5000/api/orders/place", {
+  fetch(`${BASE_URL}/api/orders/place`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -125,15 +137,16 @@ function order() {
   })
     .then(res => res.text())
     .then(data => {
+
       alert("Order Placed ✅");
       window.location = "index.html";
+
     })
     .catch(err => {
       console.log(err);
       alert("Order failed ❌");
     });
 }
-
 
 // ==========================
 // ADD PRODUCT (ADMIN)
@@ -143,7 +156,7 @@ function addProduct() {
   const price = document.getElementById("price").value;
   const category = document.getElementById("category").value;
 
-  fetch("http://localhost:5000/api/products/add", {
+  fetch(`${BASE_URL}/api/products/add`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -152,15 +165,46 @@ function addProduct() {
   })
     .then(res => res.json())
     .then(data => {
+
       if (data.success) {
+
         alert("Product Added ✅");
         window.location = "index.html";
+
       } else {
         alert("Failed ❌");
       }
+
     })
     .catch(err => {
       console.log(err);
       alert("Error ❌");
     });
+}
+
+// ==========================
+// SHOW USER
+// ==========================
+if (document.getElementById("userArea")) {
+
+  const userName = localStorage.getItem("userName");
+
+  if (userName) {
+
+    document.getElementById("userArea").innerHTML = `
+      <span>${userName}</span>
+      <button onclick="logout()">Logout</button>
+    `;
+  }
+}
+
+// ==========================
+// LOGOUT
+// ==========================
+function logout() {
+
+  localStorage.removeItem("userId");
+  localStorage.removeItem("userName");
+
+  window.location = "login.html";
 }
