@@ -1,0 +1,444 @@
+/* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ================= THEME VARIABLES ================= */
+:root{
+    --bg-color: #eef2f7;
+    --text-color: #222;
+    --card-color: #ffffff;
+    --navbar-bg: linear-gradient(to right, #0f172a, #1e293b);
+    --footer-bg: linear-gradient(to right, #020617, #0f172a);
+    --primary: #0ea5e9;
+}
+
+/* DARK MODE */
+body.dark-mode{
+    --bg-color: #0b1220;
+    --text-color: #e5e7eb;
+    --card-color: #111827;
+    --navbar-bg: linear-gradient(to right, #000000, #111827);
+    --footer-bg: linear-gradient(to right, #000000, #0b1220);
+    --primary: #38bdf8;
+}
+
+/* ================= RESET ================= */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ================= BODY ================= */
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+    width: 100%;
+    height: 90px;
+    background: var(--navbar-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 70px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* LOGO */
+.logo img{
+    width: 170px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+.logo img:hover{
+    transform: scale(1.05);
+}
+
+/* NAV LINKS */
+.navlinks{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.navlinks li a{
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+.navlinks li a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: #38bdf8;
+    transition: 0.3s;
+}
+
+.navlinks li a:hover::after{
+    width: 100%;
+}
+
+.navlinks li a:hover{
+    color: #38bdf8;
+}
+
+/* DARK MODE BUTTON */
+#toggleMode{
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    background: white;
+}
+
+/* ================= MAIN CONTAINER ================= */
+.main-container{
+    width: 92%;
+    margin: 50px auto;
+    flex: 1;
+}
+
+.main-container h1{
+    text-align: center;
+    font-size: 52px;
+    color: var(--text-color);
+    margin-bottom: 50px;
+    position: relative;
+    font-weight: 700;
+}
+
+.main-container h1::after{
+    content: '';
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(to right, #38bdf8, #0ea5e9);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    border-radius: 10px;
+}
+
+/* PRODUCTS GRID */
+#products{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+/* PRODUCT CARD */
+.product-card{
+    background: var(--card-color);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.4s ease;
+}
+
+.product-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.product-card img{
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.product-info{
+    padding: 22px;
+}
+
+.product-info h2{
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.product-info p{
+    color: #64748b;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.price{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 18px;
+}
+
+.product-info button{
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(to right, var(--primary), #0284c7);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.product-info button:hover{
+    letter-spacing: 1px;
+}
+
+/* ================= FOOTER ================= */
+.footer-container{
+    width: 100%;
+    background: var(--footer-bg);
+    color: white;
+    padding: 60px 70px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 40px;
+    margin-top: auto;
+}
+
+.footer-box h2{
+    margin-bottom: 18px;
+    font-size: 28px;
+}
+
+.footer-box p{
+    color: #cbd5e1;
+    line-height: 1.8;
+    margin-top: 10px;
+}
+
+.footer-box .logo img{
+    width: 170px;
+    margin-bottom: 15px;
+}
+
+.footer-box .navlinks{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-box .navlinks li{
+    list-style: none;
+}
+
+.footer-box .navlinks li a{
+    color: #e2e8f0;
+    text-decoration: none;
+}
+
+.footer-box .navlinks li a:hover{
+    color: #38bdf8;
+    padding-left: 6px;
+}
+
+/* FOOTER BOTTOM */
+.footer-bottom{
+    background: #000814;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width: 950px){
+    .navbar{
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .navlinks{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .main-container h1{
+        font-size: 38px;
+    }
+
+    .footer-container{
+        padding: 40px 30px;
+    }
+}
+
+@media(max-width: 600px){
+    .logo img{
+        width: 140px;
+    }
+
+    .main-container h1{
+        font-size: 30px;
+    }
+
+    .product-info h2{
+        font-size: 20px;
+    }
+
+    .price{
+        font-size: 20px;
+    }
+
+    .navlinks li a{
+        font-size: 15px;
+    }
+
+    .footer-container{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ========================= REGISTER SECTION ONLY ========================= */
+
+/* Page center alignment only for register page */
+.container{
+    min-height: calc(100vh - 160px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Heading */
+.container h1{
+    font-size: 52px;
+    color: #0f172a;
+    font-weight: 800;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+/* Underline effect */
+.container h1::after{
+    content: "";
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(90deg,#00c6ff,#0072ff);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    border-radius: 50px;
+}
+
+/* Glass form box */
+.center{
+    width: 380px;
+    padding: 35px;
+
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    transition: 0.3s;
+}
+
+/* hover glow */
+.center:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* Inputs */
+.center input{
+    padding: 14px 15px;
+    border-radius: 12px;
+
+    border: 1px solid rgba(0,0,0,0.1);
+    outline: none;
+
+    font-size: 15px;
+
+    background: rgba(255,255,255,0.6);
+
+    transition: 0.3s;
+}
+
+/* focus effect */
+.center input:focus{
+    border-color: #0072ff;
+    box-shadow: 0 0 10px rgba(0,114,255,0.2);
+    transform: scale(1.02);
+}
+
+/* Button */
+.center button{
+    padding: 14px;
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(135deg,#00c6ff,#0072ff);
+
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+/* button hover */
+.center button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,114,255,0.3);
+}
+
+/* Login link */
+.center a{
+    text-align: center;
+    color: #1e293b;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.center a:hover{
+    color: #0072ff;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media(max-width:500px){
+    .center{
+        width: 100%;
+    }
+
+    .container h1{
+        font-size: 40px;
+    }
+}
