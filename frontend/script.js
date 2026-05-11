@@ -208,3 +208,56 @@ function logout() {
 
   window.location = "login.html";
 }
+
+// ==========================
+// LOAD MY ORDERS
+// ==========================
+if (document.getElementById("orders")) {
+
+  const userId = localStorage.getItem("userId");
+
+  if (!userId) {
+
+    alert("Please Login First ❌");
+    window.location = "login.html";
+
+  } else {
+
+    fetch(`${BASE_URL}/api/orders/user/${userId}`)
+      .then(res => res.json())
+      .then(data => {
+
+        let output = "";
+
+        if (data.orders.length === 0) {
+
+          output = `
+            <h2>No Orders Found ❌</h2>
+          `;
+
+        } else {
+
+          data.orders.forEach(order => {
+
+            output += `
+              <div class="card">
+                <h2>Product ID: ${order.productId}</h2>
+                <p>Duration: ${order.duration} month</p>
+                <p>Total Price: ₹${order.totalPrice}</p>
+                <p>Delivery Date: ${order.deliveryDate}</p>
+              </div>
+            `;
+
+          });
+
+        }
+
+        document.getElementById("orders").innerHTML = output;
+
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+  }
+}

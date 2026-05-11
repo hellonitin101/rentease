@@ -11,7 +11,7 @@
     --primary: #0ea5e9;
 }
 
-/* DARK MODE */
+/* ================= DARK MODE ================= */
 body.dark-mode{
     --bg-color: #0b1220;
     --text-color: #e5e7eb;
@@ -43,13 +43,17 @@ body{
     width: 100%;
     height: 90px;
     background: var(--navbar-bg);
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     padding: 0 70px;
+
     position: sticky;
     top: 0;
     z-index: 999;
+
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
@@ -59,6 +63,7 @@ body{
     border-radius: 15px;
     transition: 0.3s;
 }
+
 .logo img:hover{
     transform: scale(1.05);
 }
@@ -76,18 +81,23 @@ body{
     color: white;
     font-size: 17px;
     font-weight: 500;
+
     position: relative;
     transition: 0.3s;
 }
 
 .navlinks li a::after{
     content: '';
+
     position: absolute;
     left: 0;
     bottom: -6px;
+
     width: 0%;
     height: 2px;
+
     background: #38bdf8;
+
     transition: 0.3s;
 }
 
@@ -99,14 +109,52 @@ body{
     color: #38bdf8;
 }
 
-/* DARK MODE BUTTON */
-#toggleMode{
-    padding: 8px 12px;
+/* ================= USER AREA ================= */
+
+#userArea{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Username */
+#userArea span{
+    background: rgba(255,255,255,0.15);
+
+    padding: 8px 16px;
+
+    border-radius: 30px;
+
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Logout Button */
+#userArea button{
+    padding: 9px 18px;
+
     border: none;
-    border-radius: 8px;
+    border-radius: 30px;
+
+    background: linear-gradient(to right, #ef4444, #dc2626);
+
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+
     cursor: pointer;
-    font-size: 16px;
-    background: white;
+
+    transition: 0.3s ease;
+}
+
+#userArea button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239,68,68,0.3);
 }
 
 /* ================= MAIN CONTAINER ================= */
@@ -120,100 +168,128 @@ body{
     text-align: center;
     font-size: 52px;
     color: var(--text-color);
+
     margin-bottom: 50px;
+
     position: relative;
     font-weight: 700;
 }
 
 .main-container h1::after{
     content: '';
+
     width: 120px;
     height: 5px;
+
     background: linear-gradient(to right, #38bdf8, #0ea5e9);
+
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: -15px;
+
     border-radius: 10px;
 }
 
-/* PRODUCTS GRID */
-#products{
+/* ================= PRODUCTS GRID ================= */
+#products,
+#orders{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     gap: 30px;
     padding-bottom: 40px;
 }
 
-/* PRODUCT CARD */
-.product-card{
+/* ================= PRODUCT CARD ================= */
+
+.card{
     background: var(--card-color);
-    border-radius: 22px;
+
+    border-radius: 24px;
     overflow: hidden;
+
+    padding: 20px;
+
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
     transition: 0.4s ease;
+
+    position: relative;
 }
 
-.product-card:hover{
+.card:hover{
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
 }
 
-.product-card img{
+/* Product Image */
+.card img{
     width: 100%;
-    height: 240px;
+    height: 220px;
+
     object-fit: cover;
+
+    border-radius: 18px;
+
+    margin-bottom: 18px;
 }
 
-.product-info{
-    padding: 22px;
-}
-
-.product-info h2{
+/* Product Name */
+.card h3,
+.card h2{
     font-size: 24px;
     margin-bottom: 12px;
     color: var(--text-color);
 }
 
-.product-info p{
+/* Product Details */
+.card p{
     color: #64748b;
-    margin-bottom: 12px;
-    line-height: 1.6;
+    margin-bottom: 10px;
+    font-size: 15px;
 }
 
-.price{
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 18px;
-}
-
-.product-info button{
+/* Button */
+.card button{
     width: 100%;
+    margin-top: 15px;
+
     padding: 13px;
+
     border: none;
-    border-radius: 12px;
-    background: linear-gradient(to right, var(--primary), #0284c7);
+    border-radius: 14px;
+
+    background: linear-gradient(to right, #0ea5e9, #0284c7);
+
     color: white;
     font-size: 16px;
     font-weight: 600;
+
     cursor: pointer;
-    transition: 0.3s;
+
+    transition: 0.3s ease;
 }
 
-.product-info button:hover{
-    letter-spacing: 1px;
+.card button:hover{
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(2,132,199,0.3);
 }
 
 /* ================= FOOTER ================= */
+
 .footer-container{
     width: 100%;
+
     background: var(--footer-bg);
     color: white;
+
     padding: 60px 70px;
+
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+
     gap: 40px;
+
     margin-top: auto;
 }
 
@@ -257,16 +333,157 @@ body{
 .footer-bottom{
     background: #000814;
     color: #cbd5e1;
+
     text-align: center;
     padding: 20px;
 }
 
+/* ================= FORM CONTAINER ================= */
+
+.container{
+    min-height: calc(100vh - 160px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+/* Heading */
+.container h1{
+    font-size: 52px;
+    color: #0f172a;
+
+    font-weight: 800;
+
+    margin-bottom: 35px;
+
+    position: relative;
+}
+
+/* Underline */
+.container h1::after{
+    content: "";
+
+    width: 120px;
+    height: 5px;
+
+    background: linear-gradient(90deg,#00c6ff,#0072ff);
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+
+    border-radius: 50px;
+}
+
+/* Glass Form */
+.center{
+    width: 380px;
+
+    padding: 35px;
+
+    background: rgba(255,255,255,0.2);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    transition: 0.3s;
+}
+
+.center:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* Inputs */
+.center input{
+    padding: 14px 15px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(0,0,0,0.1);
+
+    outline: none;
+
+    font-size: 15px;
+
+    background: rgba(255,255,255,0.6);
+
+    transition: 0.3s;
+}
+
+.center input:focus{
+    border-color: #0072ff;
+    box-shadow: 0 0 10px rgba(0,114,255,0.2);
+
+    transform: scale(1.02);
+}
+
+/* Button */
+.center button{
+    padding: 14px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg,#00c6ff,#0072ff);
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.center button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,114,255,0.3);
+}
+
+/* Link */
+.center a{
+    text-align: center;
+
+    color: #1e293b;
+
+    font-size: 14px;
+
+    text-decoration: none;
+}
+
+.center a:hover{
+    color: #0072ff;
+    text-decoration: underline;
+}
+
 /* ================= RESPONSIVE ================= */
+
 @media(max-width: 950px){
+
     .navbar{
         flex-direction: column;
         height: auto;
+
         padding: 20px;
+
         gap: 20px;
     }
 
@@ -286,6 +503,7 @@ body{
 }
 
 @media(max-width: 600px){
+
     .logo img{
         width: 140px;
     }
@@ -294,11 +512,8 @@ body{
         font-size: 30px;
     }
 
-    .product-info h2{
-        font-size: 20px;
-    }
-
-    .price{
+    .card h2,
+    .card h3{
         font-size: 20px;
     }
 
@@ -311,129 +526,8 @@ body{
     }
 }
 
+@media(max-width: 500px){
 
-/* ========================= REGISTER SECTION ONLY ========================= */
-
-/* Page center alignment only for register page */
-.container{
-    min-height: calc(100vh - 160px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-}
-
-/* Heading */
-.container h1{
-    font-size: 52px;
-    color: #0f172a;
-    font-weight: 800;
-    margin-bottom: 35px;
-    position: relative;
-}
-
-/* Underline effect */
-.container h1::after{
-    content: "";
-    width: 120px;
-    height: 5px;
-    background: linear-gradient(90deg,#00c6ff,#0072ff);
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -10px;
-    border-radius: 50px;
-}
-
-/* Glass form box */
-.center{
-    width: 380px;
-    padding: 35px;
-
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.3);
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-
-    transition: 0.3s;
-}
-
-/* hover glow */
-.center:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-}
-
-/* Inputs */
-.center input{
-    padding: 14px 15px;
-    border-radius: 12px;
-
-    border: 1px solid rgba(0,0,0,0.1);
-    outline: none;
-
-    font-size: 15px;
-
-    background: rgba(255,255,255,0.6);
-
-    transition: 0.3s;
-}
-
-/* focus effect */
-.center input:focus{
-    border-color: #0072ff;
-    box-shadow: 0 0 10px rgba(0,114,255,0.2);
-    transform: scale(1.02);
-}
-
-/* Button */
-.center button{
-    padding: 14px;
-    border: none;
-
-    border-radius: 12px;
-
-    background: linear-gradient(135deg,#00c6ff,#0072ff);
-
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-/* button hover */
-.center button:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,114,255,0.3);
-}
-
-/* Login link */
-.center a{
-    text-align: center;
-    color: #1e293b;
-    font-size: 14px;
-    text-decoration: none;
-}
-
-.center a:hover{
-    color: #0072ff;
-    text-decoration: underline;
-}
-
-/* Responsive */
-@media(max-width:500px){
     .center{
         width: 100%;
     }
